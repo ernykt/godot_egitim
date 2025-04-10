@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var player_sprite: Sprite2D = $PlayerSprite
 
 var grid_positions = [
 	[Vector2(300, 300), Vector2(450, 300), Vector2(600, 300)],
@@ -9,7 +10,7 @@ var grid_positions = [
 var current_row := 1
 var current_col := 1
 var target_position: Vector2
-var speed := 800.0  # Speed of movement in pixels/sec
+var speed := 800.0
 var is_moving := false
 
 func _ready():
@@ -21,16 +22,21 @@ func _unhandled_input(event):
 		var new_row = current_row
 		var new_col = current_col
 
+		# Handle movement and set sprite rotation
 		if event.keycode == KEY_W:
 			new_row -= 1
+			player_sprite.rotation_degrees = -90
 		elif event.keycode == KEY_S:
 			new_row += 1
+			player_sprite.rotation_degrees = 90
 		elif event.keycode == KEY_A:
 			new_col -= 1
+			player_sprite.rotation_degrees = 180
 		elif event.keycode == KEY_D:
 			new_col += 1
+			player_sprite.rotation_degrees = 0
 
-		# Check bounds
+		# Clamp to valid grid range
 		if new_row >= 0 and new_row <= 2 and new_col >= 0 and new_col <= 2:
 			current_row = new_row
 			current_col = new_col
