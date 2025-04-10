@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-# 3x3 grid centered with each square 150x150
 var grid_positions = [
 	[Vector2(300, 300), Vector2(450, 300), Vector2(600, 300)],
 	[Vector2(300, 450), Vector2(450, 450), Vector2(600, 450)],
@@ -8,23 +7,44 @@ var grid_positions = [
 ]
 
 var current_row := 1
-var current_col := 1  # Start at center
+var current_col := 1
+var target_position: Vector2
+var speed := 800.0  # Speed of movement in pixels/sec
+var is_moving := false
 
 func _ready():
-	global_position = grid_positions[current_row][current_col]
+	target_position = grid_positions[current_row][current_col]
+	global_position = target_position
 
 func _unhandled_input(event):
-	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_W:
-			move_to_cell(current_row - 1, current_col)
-		elif event.keycode == KEY_S:
-			move_to_cell(current_row + 1, current_col)
-		elif event.keycode == KEY_A:
-			move_to_cell(current_row, current_col - 1)
-		elif event.keycode == KEY_D:
-			move_to_cell(current_row, current_col + 1)
+	if event is InputEventKey and event.pressed and not is_moving:
+		var new_row = current_row
+		var new_col = current_col
 
-func move_to_cell(row: int, col: int):
-	current_row = clamp(row, 0, 2)
-	current_col = clamp(col, 0, 2)
-	global_position = grid_positions[current_row][current_col]
+		if event.keycode == KEY_W:
+			new_row -= 1
+		elif event.keycode == KEY_S:
+			new_row += 1
+		elif event.keycode == KEY_A:
+			new_col -= 1
+		elif event.keycode == KEY_D:
+			new_col += 1
+
+		# Check bounds
+		if new_row >= 0 and new_row <= 2 and new_col >= 0 and new_col <= 2:
+			current_row = new_row
+			current_col = new_col
+			target_position = grid_positions[current_row][current_col]
+			is_moving = true
+
+func _physics_process(delta):
+	if is_moving:
+		var direction = (target_position - global_position).normalized()
+		var distance = global_position.distance_to(target_position)
+		var movement = direction * speed * delta
+
+		if movement.length() >= distance:
+			global_position = target_position
+			is_moving = false
+		else:
+			move_and_collide(movement)
