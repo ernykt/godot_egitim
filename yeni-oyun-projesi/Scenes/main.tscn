@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://csy834c5o12wv"]
 
-[ext_resource type="PackedScene" uid="uid://cbr6oknbn2s3c" path="res://Scenes/BombSpawner.tscn" id="1_8gbba"]
+[ext_resource type="PackedScene" uid="uid://dbte623irkoo6" path="res://Scenes/BombSpawner.tscn" id="1_8gbba"]
 [ext_resource type="Texture2D" uid="uid://bq5ytik54cc18" path="res://Scenes/ChatGPT Image 10 Nis 2025 22_40_15.png" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://cshfbjhpha0eq" path="res://Scenes/Player.tscn" id="2_bo1nx"]
 
