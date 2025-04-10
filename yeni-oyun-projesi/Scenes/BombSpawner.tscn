@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbr6oknbn2s3c"]
+
+[ext_resource type="Script" uid="uid://bnb3ds45hx3yd" path="res://Scripts/bomb_spawner.gd" id="1_qykmh"]
+
+[node name="BombSpawner" type="Node2D"]
+script = ExtResource("1_qykmh")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

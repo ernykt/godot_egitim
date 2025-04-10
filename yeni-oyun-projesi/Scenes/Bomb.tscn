@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://4k2m4anyg2ty"]
+
+[ext_resource type="Script" uid="uid://bdauxoh3hpy76" path="res://Scripts/bomb.gd" id="1_1xih2"]
+[ext_resource type="Texture2D" uid="uid://djehphoopiq6v" path="res://Assets/PNG/Default size/towerDefense_tile252.png" id="1_7dain"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xih2"]
+size = Vector2(20, 40)
+
+[node name="Bomb" type="Node2D"]
+
+[node name="Bomb" type="CharacterBody2D" parent="."]
+script = ExtResource("1_1xih2")
+
+[node name="BombSprite" type="Sprite2D" parent="Bomb"]
+texture = ExtResource("1_7dain")
+
+[node name="BombShape" type="CollisionShape2D" parent="Bomb"]
+shape = SubResource("RectangleShape2D_1xih2")
