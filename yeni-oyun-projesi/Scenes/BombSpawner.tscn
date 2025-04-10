@@ -6,10 +6,11 @@
 script = ExtResource("1_qykmh")
 
 [node name="TimerForSpawn" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
 
 [node name="TimerForSpawnPos" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.25
 autostart = true
 
 [connection signal="timeout" from="TimerForSpawn" to="." method="_on_timer_for_spawn_timeout"]
