@@ -32,4 +32,3 @@ func _on_timer_for_spawn_timeout() -> void:
 
 func _on_timer_for_spawn_pos_timeout() -> void:
 	spawnSelector = spawnPosSelection[randi_range(0, 3)]
-	print(spawnSelector)

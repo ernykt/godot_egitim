@@ -55,10 +55,13 @@ func _physics_process(delta):
 		else:
 			move_and_collide(movement)
 
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("bombs"):
 		call_deferred("restart_scene")
 
 func restart_scene():
 	get_tree().reload_current_scene()
+	
+func apply_powerup(type: String):
+	if type == "shield":
+		print_debug("shield activated")

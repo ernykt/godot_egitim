@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnjl1h1ut8wfd"]
+
+[ext_resource type="Texture2D" uid="uid://cwrlagn2s1djw" path="res://Assets/PNG/Default size/towerDefense_tile229.png" id="1_14ans"]
+[ext_resource type="Script" uid="uid://cpqo7pohy72fm" path="res://Scripts/shield_powerup.gd" id="1_lvmm8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvmm8"]
+size = Vector2(49, 52)
+
+[node name="ShieldPowerup" type="Area2D"]
+script = ExtResource("1_lvmm8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_lvmm8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_14ans")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
