@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbr6oknbn2s3c"]
+[gd_scene load_steps=2 format=3 uid="uid://dbte623irkoo6"]
 
 [ext_resource type="Script" uid="uid://bnb3ds45hx3yd" path="res://Scripts/bomb_spawner.gd" id="1_qykmh"]
 
