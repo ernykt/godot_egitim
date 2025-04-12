@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://7jqu2mc4dl2w"]
+
+[ext_resource type="Script" uid="uid://b8bksr4qvxf6l" path="res://5x_5_power_up.gd" id="1_xambi"]
+[ext_resource type="Texture2D" uid="uid://bem5t1x3frnm5" path="res://Assets/PNG/Default size/towerDefense_tile281.png" id="2_yhow7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uj54s"]
+size = Vector2(25, 34)
+
+[node name="5x5PowerUp" type="Area2D"]
+script = ExtResource("1_xambi")
+
+[node name="5x5Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_yhow7")
+
+[node name="5x5Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 2)
+shape = SubResource("RectangleShape2D_uj54s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

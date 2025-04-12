@@ -3,15 +3,12 @@ extends Area2D
 @export var effect_duration := 5.0
 @onready var effect_timer: Timer = $EffectTimer
 
-signal powerup_collected
-
 # Reference to the affected player
 var affected_body: Node2D = null
 var affected_collider: Node2D = null
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerBody":
 		print("Power-up collected")
-		emit_signal("powerup_collected", body)
 		# Save reference to player
 		affected_body = body
 		affected_collider = body

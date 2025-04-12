@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxvdkvf6us0vt"]
+
+[ext_resource type="Script" uid="uid://0mmmifery5gm" path="res://Scripts/drawer.gd" id="1_wj4vv"]
+
+[node name="Drawer" type="Node2D"]
+script = ExtResource("1_wj4vv")
