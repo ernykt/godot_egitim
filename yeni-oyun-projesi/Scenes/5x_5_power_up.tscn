@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://7jqu2mc4dl2w"]
 
-[ext_resource type="Script" uid="uid://b8bksr4qvxf6l" path="res://5x_5_power_up.gd" id="1_xambi"]
+[ext_resource type="Script" uid="uid://b8bksr4qvxf6l" path="res://Scripts/5x_5_power_up.gd" id="1_xambi"]
 [ext_resource type="Texture2D" uid="uid://bem5t1x3frnm5" path="res://Assets/PNG/Default size/towerDefense_tile281.png" id="2_yhow7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uj54s"]
@@ -16,4 +16,12 @@ texture = ExtResource("2_yhow7")
 position = Vector2(0.5, 2)
 shape = SubResource("RectangleShape2D_uj54s")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.25
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

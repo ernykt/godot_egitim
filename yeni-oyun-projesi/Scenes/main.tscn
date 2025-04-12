@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://csy834c5o12wv"]
+[gd_scene load_steps=5 format=3 uid="uid://csy834c5o12wv"]
 
-[ext_resource type="PackedScene" uid="uid://dbte623irkoo6" path="res://Scenes/BombSpawner.tscn" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://cdhk452gnbqaq" path="res://Scripts/main.gd" id="1_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://cshfbjhpha0eq" path="res://Scenes/Player.tscn" id="2_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://780i6vmwopb0" path="res://3x3_150x150_grid_450x450.png" id="6_6bp64"]
@@ -18,9 +17,8 @@ texture = ExtResource("6_21xkr")
 position = Vector2(450, 450)
 texture = ExtResource("6_6bp64")
 
-[node name="BombSpawner" parent="." instance=ExtResource("1_8gbba")]
-
-[node name="ShieldSpawnTimer" type="Timer" parent="."]
+[node name="PowerUpSpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
 autostart = true
 
 [node name="Score" type="Timer" parent="."]
@@ -28,13 +26,13 @@ autostart = true
 
 [node name="ScoreLabel" type="Label" parent="."]
 offset_left = 425.0
-offset_top = 75.0
+offset_top = 25.0
 offset_right = 475.0
-offset_bottom = 125.0
+offset_bottom = 75.0
 horizontal_alignment = 1
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_bo1nx")]
 position = Vector2(450, 450)
 
-[connection signal="timeout" from="ShieldSpawnTimer" to="." method="_on_shield_spawn_timer_timeout"]
+[connection signal="timeout" from="PowerUpSpawnTimer" to="." method="_on_shield_spawn_timer_timeout"]
 [connection signal="timeout" from="Score" to="." method="_on_score_timeout"]
