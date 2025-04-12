@@ -20,5 +20,10 @@ texture = ExtResource("1_14ans")
 wait_time = 5.0
 one_shot = true
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="EffectTimer" to="." method="_on_effect_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

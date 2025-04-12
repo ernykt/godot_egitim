@@ -18,6 +18,7 @@ shape = SubResource("RectangleShape2D_uj54s")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
+one_shot = true
 
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 0.25

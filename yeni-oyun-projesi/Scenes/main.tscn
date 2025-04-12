@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://csy834c5o12wv"]
+[gd_scene load_steps=6 format=3 uid="uid://csy834c5o12wv"]
 
 [ext_resource type="Script" uid="uid://cdhk452gnbqaq" path="res://Scripts/main.gd" id="1_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://cshfbjhpha0eq" path="res://Scenes/Player.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://dbte623irkoo6" path="res://Scenes/BombSpawner.tscn" id="5_kry3j"]
 [ext_resource type="Texture2D" uid="uid://780i6vmwopb0" path="res://3x3_150x150_grid_450x450.png" id="6_6bp64"]
 [ext_resource type="Texture2D" uid="uid://bxp7fa8xem7e8" path="res://150x150_grid_in_750x750.png" id="6_21xkr"]
 
@@ -33,6 +34,8 @@ horizontal_alignment = 1
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_bo1nx")]
 position = Vector2(450, 450)
+
+[node name="BombSpawner" parent="." instance=ExtResource("5_kry3j")]
 
 [connection signal="timeout" from="PowerUpSpawnTimer" to="." method="_on_shield_spawn_timer_timeout"]
 [connection signal="timeout" from="Score" to="." method="_on_score_timeout"]
