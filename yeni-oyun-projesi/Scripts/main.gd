@@ -8,6 +8,9 @@ var powerups = [
 	preload("res://Scenes/5x_5_power_up.tscn")     # index 1 → 5x5
 ]
 
+func _ready() -> void:
+	score_label.text = "score: 0"
+
 var spawn_positions := [
 	[Vector2(300, 300), Vector2(450, 300), Vector2(600, 300)],
 	[Vector2(300, 450), Vector2(450, 450), Vector2(600, 450)],
@@ -47,4 +50,4 @@ func _on_shield_spawn_timer_timeout() -> void:
 
 func _on_score_timeout() -> void:
 	score += 1
-	score_label.text = str(score)
+	score_label.text = "score: " + str(score)

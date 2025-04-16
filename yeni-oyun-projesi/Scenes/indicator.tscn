@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb604vbsbajd1"]
+
+[ext_resource type="Texture2D" uid="uid://prkfc72s7m23" path="res://Assets/pngegg.png" id="1_2k7kp"]
+
+[node name="Indicator" type="Node2D"]
+
+[node name="IndicatorSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_2k7kp")
